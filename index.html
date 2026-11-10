@@ -1101,6 +1101,43 @@ Dr. Carmen
       document.body.removeChild(downloadLink);
       showToast("Your Implementation Chart has been downloaded! 📥");
     }
+    const form = document.getElementById('leadCaptureForm') || document.querySelector('form');
+
+form.addEventListener('submit', async function (event) {
+  event.preventDefault(); // Prevents page reload
+
+  // Collect named inputs into a proper JavaScript object
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
+
+  // (Optional) Add your quiz score/results if stored in variables:
+  // if (typeof finalScore !== 'undefined') payload.score = finalScore;
+  // if (typeof scoreResult !== 'undefined') payload.result = scoreResult;
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload) // Converts the object to valid JSON string
+    });
+
+    if (response.ok) {
+      // Formspree accepted the submission!
+      // Add your code here to show the scorecard/results screen:
+      alert('Scorecard submitted! Loading your results...');
+    } else {
+      const errorData = await response.json();
+      console.error('Submission failed:', errorData);
+      alert('Submission error. Please check your details and try again.');
+    }
+  } catch (error) {
+    console.error('Network error:', error);
+    alert('Network error. Please try again.');
+  }
+});
   </script>
 </body>
 </html>
