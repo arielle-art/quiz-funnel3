@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Carmen | Menstrual Self-Care & Inner Seasons Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              plum: '#3A1428',
+              plumDark: '#250B19',
+              plumLight: '#54213D',
+              terracotta: '#C85A32',
+              terracottaLight: '#E07A53',
+              blush: '#FBF5F1',
+              blushCard: '#F5ECE5',
+              gold: '#D4AF37',
+              goldWarm: '#E5C158',
+              textDark: '#1E1419',
+              textMuted: '#685860'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FBF5F1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E07A53;
+      border-radius: 4px;
+    }
+    .custom-shadow {
+      box-shadow: 0 16px 36px -10px rgba(58, 20, 40, 0.12), 0 4px 12px -2px rgba(58, 20, 40, 0.05);
+    }
+    .active-script {
+      border-color: #C85A32 !important;
+      background-color: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(200, 90, 50, 0.12) !important;
+    }
+  </style>
+</head>
+<body class="bg-brand-blush text-brand-textDark font-sans antialiased selection:bg-brand-terracotta selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- Top Announcement Bar -->
+  <header class="bg-brand-plumDark text-amber-100 text-xs py-2 px-4 text-center tracking-wider font-medium flex justify-center items-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+    <span>Dismantling Menstrual Stigma &middot; Founded by Dr. Carmen</span>
+  </header>
+
+  <!-- Global Brand Navigation -->
+  <nav class="border-b border-brand-plum/10 bg-brand-blush/90 backdrop-blur-md sticky top-0 z-40 transition-all">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-terracotta to-brand-plum flex items-center justify-center text-white font-serif font-bold text-lg shadow-md border-2 border-brand-gold/40">
+          C
+        </div>
+        <div>
+          <span class="font-serif font-bold text-xl tracking-tight text-brand-plum block leading-tight">Dr. Carmen</span>
+          <span class="text-[11px] font-semibold uppercase tracking-widest text-brand-terracotta">Body Wisdom &middot; Menstrual Self-Care</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.drcarmenempowers.com/coaching" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex text-xs font-semibold px-4 py-2 rounded-full border border-brand-plum/20 text-brand-plum hover:bg-brand-plum hover:text-white transition-colors duration-200">
+          8-Week Coaching
+        </a>
+        <button id="navRestartBtn" class="hidden text-xs font-semibold text-brand-terracotta hover:underline px-2 py-1">
+          Restart Quiz
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Notification Toast Modal (replacing alert()) -->
+  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none max-w-sm bg-brand-plumDark text-white p-4 rounded-2xl shadow-2xl border border-brand-gold/30 flex items-start gap-3">
+    <span class="text-brand-gold text-lg">✦</span>
+    <p id="toastText" class="text-xs text-amber-100/90 leading-relaxed font-medium">Notification message</p>
+  </div>
+
+  <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 py-8">
+    
+    <!-- VIEW 1: LANDING PAGE -->
+    <section id="viewLanding" class="transition-all duration-500 block py-4">
+      <div class="max-w-3xl mx-auto space-y-6 text-center sm:text-left">
+        
+        <div class="inline-flex items-center gap-2 bg-brand-terracotta/10 border border-brand-terracotta/20 rounded-full px-4 py-1.5 text-xs font-semibold text-brand-terracotta mx-auto sm:mx-0">
+          <span>✨ Quick 2-Minute Body Wisdom Quiz</span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-brand-plum leading-[1.18] tracking-tight">
+          Stop Repeating the <span class="italic font-normal text-brand-terracotta">Story</span> You Inherited. Start Honoring the <span class="underline decoration-brand-gold decoration-4 underline-offset-4">Wisdom</span> in Your Body.
+        </h1>
+
+        <p class="text-base sm:text-lg text-brand-textMuted leading-relaxed">
+          Are you on the hustle clock? Uncover how much inherited shame governs your routine and reclaim your <strong class="text-brand-plum font-semibold">four inner seasons</strong>.
+        </p>
+
+        <!-- What You'll Discover Card -->
+        <div class="p-6 sm:p-8 bg-brand-blushCard rounded-3xl border border-brand-plum/10 space-y-5 text-left custom-shadow">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-brand-terracotta/20 text-brand-terracotta flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+              1
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-brand-plum">Discover Your Menstrual Story Archetype</h2>
+              <p class="text-xs sm:text-sm text-brand-textMuted mt-0.5">Learn whether you are an <em>Over-Functioning Machine</em>, <em>Silent Caregiver</em>, <em>Frustrated Advocate</em>, or <em>Cycle Sovereign</em>.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-brand-terracotta/20 text-brand-terracotta flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+              2
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-brand-plum">Evaluate Your Self-Care Score</h2>
+              <p class="text-xs sm:text-sm text-brand-textMuted mt-0.5">Assess how much you listen to your body and unlock Dr. Carmen’s direct Teach-Back scripts for medical appointments.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-brand-terracotta/20 text-brand-terracotta flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+              3
+            </div>
+            <div>
+              <h2 class="text-sm sm:text-base font-bold text-brand-plum">Unlock the Menstrual Self-Care Guide</h2>
+              <p class="text-xs sm:text-sm text-brand-textMuted mt-0.5">Receive the <em>Four Inner Seasons Daily Implementation Chart</em> to easily align your energy, rest, and planning each month.</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-brand-plum/10 flex flex-col sm:flex-row items-center gap-4">
+            <button id="startQuizBtn" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-terracotta to-brand-terracottaLight text-white rounded-2xl font-bold text-base shadow-lg shadow-brand-terracotta/30 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3">
+              <span>Start The Free Self-Care Quiz</span>
+              <span class="text-xl">→</span>
+            </button>
+            <p class="text-xs text-brand-textMuted text-center sm:text-left">
+              ⏱️ 4 quick questions &middot; Free & Confidential
+            </p>
+          </div>
+        </div>
+
+        <!-- Social Proof Metric (Clutter-free) -->
+        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-brand-plum/10 flex items-center gap-4 shadow-sm">
+          <div class="flex -space-x-2 shrink-0">
+            <span class="w-8 h-8 rounded-full bg-brand-terracotta flex items-center justify-center text-white text-xs font-bold">S</span>
+            <span class="w-8 h-8 rounded-full bg-brand-plum flex items-center justify-center text-white text-xs font-bold">M</span>
+            <span class="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-white text-xs font-bold">A</span>
+          </div>
+          <p class="text-xs sm:text-sm text-brand-textMuted leading-snug">
+            <strong class="text-brand-plum font-semibold">Over 1,200 mothers, tweens, and individuals</strong> have dismantled menstrual stigma and built authentic body trust.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 2: INTERACTIVE QUIZ (STREAMLINED 4 QUESTIONS) -->
+    <section id="viewQuiz" class="hidden transition-all duration-500 py-6">
+      <div class="max-w-2xl mx-auto space-y-6">
+        
+        <!-- Progress Bar & Step Tracker -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs font-semibold text-brand-plum">
+            <span id="quizStepCounter">Question 1 of 4</span>
+            <span id="quizPercent">25% Completed</span>
+          </div>
+          <div class="w-full h-2.5 bg-brand-blushCard rounded-full overflow-hidden border border-brand-plum/10">
+            <div id="quizProgressBar" class="h-full bg-gradient-to-r from-brand-terracotta to-brand-gold transition-all duration-300 rounded-full" style="width: 25%;"></div>
+          </div>
+        </div>
+
+        <!-- Question Box Container -->
+        <div class="bg-white p-6 sm:p-9 rounded-3xl custom-shadow border border-brand-plum/10 relative">
+          
+          <div class="space-y-2 mb-6">
+            <span id="qCategory" class="text-xs font-bold tracking-wider text-brand-terracotta uppercase block">Question 1 of 4</span>
+            <h2 id="qTitle" class="font-serif text-xl sm:text-2xl font-bold text-brand-plum leading-snug">
+              When your cycle begins or energy drops, what is your initial automatic thought?
+            </h2>
+          </div>
+
+          <!-- Options List -->
+          <div id="optionsContainer" class="space-y-3">
+            <!-- Injected dynamically via JS -->
+          </div>
+
+          <!-- Navigation actions -->
+          <div class="mt-8 pt-4 border-t border-brand-plum/10 flex justify-between items-center">
+            <button id="quizPrevBtn" class="text-xs font-bold text-brand-textMuted hover:text-brand-plum disabled:opacity-30 disabled:hover:text-brand-textMuted px-3 py-2 rounded-lg" disabled>
+              ← Previous Question
+            </button>
+            <span class="text-[11px] text-brand-textMuted italic">Choose your honest gut reaction</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 3: LEAD CAPTURE GATEWAY -->
+    <section id="viewLeadGate" class="hidden transition-all duration-500 py-8">
+      <div class="max-w-xl mx-auto bg-white p-7 sm:p-10 rounded-3xl custom-shadow border border-brand-plum/10 relative">
+        <div class="text-center space-y-3 mb-8">
+          <div class="w-12 h-12 mx-auto rounded-full bg-brand-gold/20 text-brand-plum flex items-center justify-center font-serif text-xl font-bold border border-brand-gold">
+            ✦
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-plum">Your Archetype Profile is Ready</h2>
+          <p class="text-xs sm:text-sm text-brand-textMuted max-w-md mx-auto leading-relaxed">
+            Where should Dr. Carmen send your tailored <strong class="text-brand-plum">Menstrual Self-Care Scorecard</strong> and free companion <strong class="text-brand-terracotta">Inner Seasons Guide</strong>?
+          </p>
+        </div>
+
+        <form id="leadCaptureForm" class="space-y-4">
+          <div>
+            <label for="userName" class="block text-xs font-bold uppercase tracking-wider text-brand-plum mb-1.5">First Name</label>
+            <input type="text" id="userName" required placeholder="e.g., Brittney" class="w-full px-4 py-3 rounded-xl border border-brand-plum/20 bg-brand-blush/40 text-brand-textDark text-sm focus:outline-none focus:ring-2 focus:ring-brand-terracotta focus:bg-white transition-all">
+          </div>
+
+          <div>
+            <label for="userEmail" class="block text-xs font-bold uppercase tracking-wider text-brand-plum mb-1.5">Your Best Email</label>
+            <input type="email" id="userEmail" required placeholder="brittney@example.com" class="w-full px-4 py-3 rounded-xl border border-brand-plum/20 bg-brand-blush/40 text-brand-textDark text-sm focus:outline-none focus:ring-2 focus:ring-brand-terracotta focus:bg-white transition-all">
+          </div>
+
+          <div>
+            <label for="userRole" class="block text-xs font-bold uppercase tracking-wider text-brand-plum mb-1.5">What describes your current focus most?</label>
+            <select id="userRole" class="w-full px-4 py-3 rounded-xl border border-brand-plum/20 bg-brand-blush/40 text-brand-textDark text-sm focus:outline-none focus:ring-2 focus:ring-brand-terracotta focus:bg-white transition-all">
+              <option value="parent">Mother / Parent preparing a daughter or son</option>
+              <option value="individual">Individual healing my own cycle relationship & PMS</option>
+              <option value="professional">Educator, clinician, coach or community advocate</option>
+              <option value="partner">Partner or ally looking to build supportive body literacy</option>
+            </select>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full py-4 bg-brand-terracotta hover:bg-brand-terracottaLight text-white rounded-xl font-bold text-sm shadow-lg shadow-brand-terracotta/30 transition-all flex items-center justify-center gap-2">
+              <span>Generate My Scorecard & Guide</span>
+              <span>→</span>
+            </button>
+            <p class="text-[11px] text-center text-brand-textMuted mt-3">
+              🔒 100% Privacy guaranteed. Zero spam. Directly connected to Dr. Carmen's community.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW 4: PERSONALIZED RESULTS DASHBOARD & UPSELL -->
+    <section id="viewResults" class="hidden transition-all duration-500 py-6 space-y-10">
+      
+      <!-- Top Scorecard Summary Banner -->
+      <div class="bg-gradient-to-r from-brand-plum to-brand-plumDark text-white p-6 sm:p-9 rounded-3xl border border-brand-gold/40 relative overflow-hidden custom-shadow">
+        <div class="absolute right-0 top-0 w-80 h-full bg-brand-terracotta/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-8 space-y-3">
+            <div class="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Profile Ready &middot; Personalized Archetype
+            </div>
+            <h2 class="font-serif text-2xl sm:text-4xl font-extrabold text-white">
+              Hello <span id="resUserName" class="text-brand-gold">Friend</span>, Your Archetype is: <br>
+              <span id="resArchetypeTitle" class="text-brand-terracottaLight italic font-serif">The Over-Functioning Machine</span>
+            </h2>
+            <p id="resArchetypeBlurb" class="text-xs sm:text-sm text-amber-100/90 leading-relaxed max-w-2xl">
+              You carry the habit of pushing through your low-energy days as if slowing down is not an option.
+            </p>
+          </div>
+
+          <!-- Score Title renamed to "Your Self-Care Score" -->
+          <div class="md:col-span-4 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 text-center space-y-2">
+            <span class="text-xs uppercase tracking-wider text-amber-100/80 font-semibold block">Your Self-Care Score</span>
+            <div class="text-4xl sm:text-5xl font-extrabold text-brand-gold" id="resAdvocacyScore">46%</div>
+            <p class="text-xs text-amber-100/90 leading-tight font-medium" id="resAdvocacyLabel">
+              High Risk of Disempowerment During Medical Encounters
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analysis Section: Archetype Breakdown & The 3Ds -->
+      <div class="grid lg:grid-cols-12 gap-8">
+        
+        <!-- Left Analysis Card -->
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-brand-plum/10 custom-shadow space-y-6">
+          <div class="border-b border-brand-plum/10 pb-4">
+            <span class="text-xs font-bold text-brand-terracotta uppercase tracking-wider">Self-Care Breakdown</span>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-plum mt-1">
+              Deconstructing Your Inherited History
+            </h3>
+          </div>
+
+          <div id="resArchetypeDetail" class="text-sm text-brand-textDark space-y-4 leading-relaxed">
+            <!-- Dynamic Archetype Detailed Content -->
+          </div>
+
+          <!-- The 3Ds Status Alert -->
+          <div class="bg-brand-blushCard p-5 rounded-2xl border border-brand-terracotta/20 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-terracotta flex items-center gap-2">
+              <span>⚠️ Dr. Carmen's 3D Pattern Check</span>
+            </h4>
+            <div class="grid sm:grid-cols-3 gap-3 text-xs text-brand-textMuted">
+              <div class="p-2.5 rounded-xl bg-white border border-brand-plum/5">
+                <strong class="text-brand-plum block">1. Distract</strong>
+                <span id="resDistractText">Focusing on pushing through pain instead of listening to fatigue.</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white border border-brand-plum/5">
+                <strong class="text-brand-plum block">2. Disorient</strong>
+                <span id="resDisorientText">Believing you need to be at 100% productivity every single day.</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white border border-brand-plum/5">
+                <strong class="text-brand-plum block">3. Disable</strong>
+                <span id="resDisableText">Staying silent in doctor visits instead of asking for what you need.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The 4 Inner Seasons Blueprint -->
+        <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-brand-plum/10 custom-shadow space-y-5 flex flex-col justify-between">
+          <div>
+            <div class="border-b border-brand-plum/10 pb-3 flex justify-between items-baseline">
+              <div>
+                <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">The Sacred Biological Clock</span>
+                <h3 class="font-serif text-lg font-bold text-brand-plum">Your 4 Inner Seasons</h3>
+              </div>
+            </div>
+
+            <!-- Season Tab Selector -->
+            <div class="flex gap-1.5 mt-4 bg-brand-blush p-1 rounded-xl border border-brand-plum/10 text-xs font-bold">
+              <button class="season-tab flex-1 py-2 rounded-lg text-center transition-all bg-brand-plum text-white shadow-sm" data-season="winter">
+                ❄️ Winter
+              </button>
+              <button class="season-tab flex-1 py-2 rounded-lg text-center transition-all text-brand-plum hover:bg-white" data-season="spring">
+                🌱 Spring
+              </button>
+              <button class="season-tab flex-1 py-2 rounded-lg text-center transition-all text-brand-plum hover:bg-white" data-season="summer">
+                ☀️ Summer
+              </button>
+              <button class="season-tab flex-1 py-2 rounded-lg text-center transition-all text-brand-plum hover:bg-white" data-season="fall">
+                🍂 Fall
+              </button>
+            </div>
+
+            <!-- Season Content Display -->
+            <div id="seasonContentDisplay" class="mt-4 p-4 rounded-2xl bg-brand-blushCard border border-brand-plum/10 text-xs space-y-3">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-amber-50 border border-brand-gold/30 text-[11px] text-amber-900 leading-snug">
+            💡 <strong>Dr. Carmen's Core Rule:</strong> Fall is reframed from <em>Premenstrual Syndrome</em> to <strong>Premenstrual Self-Care</strong>—your natural prompt to purge toxic commitments and make room for rest.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Clinical Self-Care Tool: Medical Script Generator -->
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-brand-plum/10 custom-shadow space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-plum/10 pb-4">
+          <div>
+            <span class="text-xs font-bold text-brand-terracotta uppercase tracking-wider">Clinical Self-Care Tool</span>
+            <h3 class="font-serif text-xl font-bold text-brand-plum">Dr. Carmen’s "Teach-Back" Medical Script Generator</h3>
+          </div>
+          <span class="text-xs text-brand-textMuted bg-brand-blush px-3 py-1 rounded-full border border-brand-plum/10">Appointment Confidence</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-brand-textMuted leading-relaxed">
+          Many clinicians are not accustomed to patients asking questions. Use Dr. Carmen's simple prompts to speak with confidence during appointments:
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-3">
+          <button class="script-btn text-left p-3.5 rounded-2xl border border-brand-plum/15 bg-brand-blush/60 hover:border-brand-terracotta hover:bg-white transition-all text-xs active-script" data-type="dismissal">
+            <span class="font-bold text-brand-plum block mb-1">When Pain is Dismissed as "Normal"</span>
+            <span class="text-brand-textMuted text-[11px]">Direct words to ask for testing and chart documentation.</span>
+          </button>
+          <button class="script-btn text-left p-3.5 rounded-2xl border border-brand-plum/15 bg-brand-blush/60 hover:border-brand-terracotta hover:bg-white transition-all text-xs" data-type="clarify">
+            <span class="font-bold text-brand-plum block mb-1">The Teach-Back Clarifier</span>
+            <span class="text-brand-textMuted text-[11px]">Repeat back recommendations to ensure complete clarity.</span>
+          </button>
+          <button class="script-btn text-left p-3.5 rounded-2xl border border-brand-plum/15 bg-brand-blush/60 hover:border-brand-terracotta hover:bg-white transition-all text-xs" data-type="options">
+            <span class="font-bold text-brand-plum block mb-1">Inquiring About Root Causes</span>
+            <span class="text-brand-textMuted text-[11px]">Ask for hormonal labs rather than quick symptom suppression.</span>
+          </button>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-brand-plumDark text-amber-50 font-mono text-xs leading-relaxed relative border border-brand-gold/30">
+          <p id="teachBackScriptText">
+            "Doctor, I appreciate your time today. To ensure we are in alignment, let me summarize what you just shared in my own words: [Summarize plan]. My primary health goal is addressing the root cause, not merely masking symptoms. If we are choosing not to order metabolic/hormonal labs today, please record that decision and the medical rationale in my chart."
+          </p>
+          <div class="mt-3 flex justify-end">
+            <button id="copyScriptBtn" class="px-3.5 py-1.5 rounded-lg bg-brand-terracotta hover:bg-brand-terracottaLight text-white font-sans text-xs font-bold transition-all flex items-center gap-1.5 shadow">
+              <span>📋 Copy Script to Clipboard</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FREE LEAD MAGNET: 1-2 PAGE DAILY IMPLEMENTATION CHART -->
+      <div class="bg-gradient-to-br from-brand-blushCard to-amber-50/50 p-6 sm:p-8 rounded-3xl border border-brand-gold/40 custom-shadow grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-brand-terracotta/15 text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            Included Free With Your Menstrual Self-Care Guide
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-plum leading-tight">
+            The Four Inner Seasons: <br class="hidden sm:inline">
+            <span class="text-brand-terracotta font-serif italic">Daily Implementation Chart (Quick Reference)</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-brand-textMuted leading-relaxed">
+            A simple, actionable 1-page guide by <strong>Dr. Carmen</strong> designed to keep on your desk or mirror:
+          </p>
+          <ul class="text-xs sm:text-sm space-y-2 text-brand-textDark">
+            <li class="flex items-center gap-2">✓ <strong>Winter:</strong> Exact daily rest protocols & boundary phrases</li>
+            <li class="flex items-center gap-2">✓ <strong>Spring:</strong> Strategic goal-setting & project planning timing</li>
+            <li class="flex items-center gap-2">✓ <strong>Summer:</strong> High-energy creation & connection practices</li>
+            <li class="flex items-center gap-2">✓ <strong>Fall:</strong> Premenstrual self-care, decluttering, & healthy boundary scripts</li>
+          </ul>
+
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button id="downloadGuideBtn" class="px-6 py-3.5 bg-brand-plum text-white rounded-xl font-bold text-xs hover:bg-brand-plumLight transition-all flex items-center gap-2 shadow-md">
+              <span>📥 Download Implementation Chart (.txt)</span>
+            </button>
+            <button id="previewGuideBtn" class="px-5 py-3.5 bg-white border border-brand-plum/20 text-brand-plum rounded-xl font-semibold text-xs hover:bg-brand-blush transition-all">
+              Preview Online
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex justify-center">
+          <div class="w-48 sm:w-56 bg-brand-plum p-4 rounded-2xl shadow-2xl border-2 border-brand-gold text-amber-50 space-y-3 transform -rotate-1 hover:rotate-0 transition-transform">
+            <div class="border border-white/20 p-3 rounded-xl text-center space-y-2">
+              <span class="text-[9px] uppercase tracking-widest text-brand-gold font-bold block">Dr. Carmen</span>
+              <h4 class="font-serif text-sm font-bold text-white leading-tight">The 4 Inner Seasons Chart</h4>
+              <div class="w-8 h-0.5 bg-brand-gold mx-auto"></div>
+              <p class="text-[10px] text-amber-100/70 italic">Daily Implementation Quick Guide</p>
+            </div>
+            <div class="text-[9px] text-center text-amber-100/60 font-mono">
+              Dr. Carmen McNeil-Clinkscales, PhD
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNATURE COACHING UPSELL: Rock With Your Menstrual Rhythm -->
+      <div class="bg-white p-7 sm:p-10 rounded-3xl border-2 border-brand-terracotta/40 custom-shadow space-y-8 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <div class="inline-flex items-center gap-2 bg-brand-terracotta text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
+            Signature 8-Session Private Experience
+          </div>
+          <h2 class="font-serif text-2xl sm:text-4xl font-extrabold text-brand-plum">
+            Rock with Your Menstrual Rhythm™
+          </h2>
+          <p class="text-sm sm:text-base text-brand-terracotta font-serif italic">
+            "Before you teach your daughter about her period... heal the story you’ve been carrying about your own."
+          </p>
+          <p class="text-xs sm:text-sm text-brand-textMuted leading-relaxed max-w-2xl mx-auto">
+            Every month, your body follows a cycle. Every generation, your family follows one, too. One deserves to be honored. The other deserves to end. Walk side-by-side with Dr. Carmen to break the cycle of inherited shame and create a legacy of body trust.
+          </p>
+        </div>
+
+        <!-- Coaching Feature Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-brand-blush border border-brand-plum/10 space-y-2">
+            <span class="text-brand-terracotta font-bold text-base">01</span>
+            <h4 class="text-xs font-bold text-brand-plum">8 Private 1-on-1 Sessions</h4>
+            <p class="text-[11px] text-brand-textMuted leading-relaxed">Live via Zoom. Tailored to your specific family history, cycle challenges, or tween parenting questions.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-blush border border-brand-plum/10 space-y-2">
+            <span class="text-brand-terracotta font-bold text-base">02</span>
+            <h4 class="text-xs font-bold text-brand-plum">Reflection Worksheets</h4>
+            <p class="text-[11px] text-brand-textMuted leading-relaxed">Simple exercises to integrate boundary-setting, cycle tracking, and language shifts into real family life.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-blush border border-brand-plum/10 space-y-2">
+            <span class="text-brand-terracotta font-bold text-base">03</span>
+            <h4 class="text-xs font-bold text-brand-plum">Ongoing Email Support</h4>
+            <p class="text-[11px] text-brand-textMuted leading-relaxed">Direct guidance between sessions as conversations arise with your children, doctors, or partner.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-brand-blush border border-brand-plum/10 space-y-2">
+            <span class="text-brand-terracotta font-bold text-base">04</span>
+            <h4 class="text-xs font-bold text-brand-plum">Personalized Action Plan</h4>
+            <p class="text-[11px] text-brand-textMuted leading-relaxed">Build a long-term cyclical living strategy aligned with your work, family schedule, and emotional well-being.</p>
+          </div>
+        </div>
+
+        <!-- Price & CTA Box with Direct Stripe and Calendly -->
+        <div class="bg-brand-plumDark text-amber-50 p-6 sm:p-8 rounded-2xl border border-brand-gold/40 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-1 text-center md:text-left">
+            <span class="text-xs font-semibold text-brand-gold uppercase tracking-wider">Self-Care Investment</span>
+            <div class="text-3xl sm:text-4xl font-extrabold text-white">
+              $997 <span class="text-xs font-normal text-amber-100/70">/ Full 8-Session Experience</span>
+            </div>
+            <p class="text-xs text-amber-100/80">Break the cycle of inherited shame & create a legacy of body wisdom.</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+            <a href="https://buy.stripe.com/8x24gA0dr5nw5387YS5AQ06" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-8 py-4 bg-gradient-to-r from-brand-terracotta to-brand-gold text-white rounded-xl font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+              Yes, I'm Ready to Enroll! ($997)
+            </a>
+            <a href="https://calendly.com/drcarmen-empowers/30min" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-5 py-4 bg-white/10 hover:bg-white/20 text-amber-100 rounded-xl font-semibold text-xs border border-white/20 transition-all">
+              Book a 30-Min Discovery Chat
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <button id="restartBtnFooter" class="text-xs font-bold text-brand-terracotta hover:underline">
+            🔄 Retake Quiz from Beginning
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- INTERACTIVE LEAD MAGNET PREVIEW MODAL -->
+    <div id="guideModal" class="fixed inset-0 z-50 bg-brand-plumDark/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+      <div class="bg-white w-full max-w-2xl max-h-[90vh] rounded-3xl custom-shadow overflow-hidden flex flex-col border border-brand-gold/30">
+        
+        <div class="bg-brand-plum text-white p-5 px-6 flex justify-between items-center border-b border-white/10">
+          <div>
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider block">Quick Resource Preview</span>
+            <h3 class="font-serif text-lg font-bold">The Four Inner Seasons Daily Implementation Chart</h3>
+          </div>
+          <button id="closeGuideModal" class="text-amber-100/80 hover:text-white text-2xl font-bold px-2">
+            &times;
+          </button>
+        </div>
+
+        <div class="p-6 sm:p-8 overflow-y-auto space-y-6 text-sm text-brand-textDark leading-relaxed">
+          
+          <div class="p-4 bg-brand-blush rounded-2xl border border-brand-plum/10">
+            <h4 class="font-serif font-bold text-brand-plum text-base mb-1">A Note From Dr. Carmen</h4>
+            <p class="text-xs text-brand-textMuted">
+              "You don't need an 18-page manual to start honoring your body. You just need a simple daily compass. Use this chart each morning to align your schedule with your internal season."
+            </p>
+          </div>
+
+          <!-- Concise Implementation Chart Preview -->
+          <div class="space-y-3">
+            <div class="p-3.5 rounded-xl border border-brand-plum/15 bg-brand-blush/30">
+              <strong class="text-brand-plum text-xs block">❄️ Winter (Bleed Days 1-5): The Sacred Pause</strong>
+              <p class="text-xs text-brand-textMuted mt-0.5">Focus: Gentle pacing, warm teas, journaling. Practice saying: <em>"I need a quiet evening to recharge."</em></p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-brand-plum/15 bg-brand-blush/30">
+              <strong class="text-brand-plum text-xs block">🌱 Spring (Days 6-11): Strategic Planning</strong>
+              <p class="text-xs text-brand-textMuted mt-0.5">Focus: Brainstorming, outlining projects, scheduling key phone calls, trying fresh ideas.</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-brand-plum/15 bg-brand-blush/30">
+              <strong class="text-brand-plum text-xs block">☀️ Summer (Days 12-19): High Output & Visibility</strong>
+              <p class="text-xs text-brand-textMuted mt-0.5">Focus: Collaborating, pitching ideas, high verbal fluency, executing presentations.</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-brand-plum/15 bg-brand-blush/30">
+              <strong class="text-brand-plum text-xs block">🍂 Fall (Days 20-28): Premenstrual Self-Care</strong>
+              <p class="text-xs text-brand-textMuted mt-0.5">Focus: Editing, clearing physical clutter, establishing firm boundaries, saying no to extra commitments.</p>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 p-4 rounded-2xl border border-brand-gold/40 text-center space-y-2">
+            <p class="text-xs font-semibold text-amber-900">Your personalized copy is ready to download.</p>
+            <button id="downloadPdfTrigger" class="px-5 py-2.5 bg-brand-terracotta hover:bg-brand-terracottaLight text-white rounded-xl text-xs font-bold transition-all shadow">
+              Save Chart as Offline File (.txt)
+            </button>
+          </div>
+
+        </div>
+
+        <div class="p-4 bg-brand-blush border-t border-brand-plum/10 text-right">
+          <button id="closeGuideModalBtn2" class="px-4 py-2 bg-brand-plum text-white rounded-lg text-xs font-semibold">
+            Close Preview
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="border-t border-brand-plum/10 bg-brand-plumDark text-amber-100/80 py-8 px-4 text-xs mt-12">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-full bg-brand-gold text-brand-plumDark flex items-center justify-center font-bold text-xs">
+          C
+        </div>
+        <span class="font-serif font-bold text-white tracking-wide">Dr. Carmen</span>
+        <span class="text-amber-100/40">&middot; Period of Empowerment</span>
+      </div>
+
+      <p class="text-[11px] text-amber-100/60 text-center sm:text-right">
+        Facilitating healing across 500+ workshops &middot; 
+        <a href="https://www.drcarmenempowers.com/coaching" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">
+          drcarmenempowers.com/coaching
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Single-File JavaScript Architecture -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    const quizState = {
+      currentQuestionIndex: 0,
+      userAnswers: [],
+      userData: {
+        name: '',
+        email: '',
+        role: ''
+      },
+      calculatedArchetype: null,
+      selfCareScore: 0
+    };
+
+    // --- STREAMLINED 4-QUESTION QUIZ ---
+    const questions = [
+      {
+        category: "Question 1 of 4: Resting & Low Energy",
+        title: "When your energy drops or your period begins, what is your first gut reaction?",
+        options: [
+          { text: "I feel guilty, swallow medication, and push through my to-do list at 100%.", archetype: "machine", score: 1 },
+          { text: "I hide my symptoms completely so I don't burden my family or colleagues.", archetype: "caregiver", score: 2 },
+          { text: "I resent the fatigue and feel frustrated that my body slows me down.", archetype: "advocate", score: 2 },
+          { text: "I welcome biological 'Winter', set gentle boundaries, and rest without guilt.", archetype: "sovereign", score: 4 }
+        ]
+      },
+      {
+        category: "Question 2 of 4: Medical Encounters",
+        title: "When a healthcare provider dismisses your menstrual cramps or mood shifts as 'just normal woman trouble':",
+        options: [
+          { text: "I nod quietly, assume they know best, and leave feeling discouraged.", archetype: "machine", score: 1 },
+          { text: "I accept the dismissal because I don't want to come across as difficult.", archetype: "caregiver", score: 2 },
+          { text: "I feel upset and angry inside, but struggle to find the right clinical words to push back.", archetype: "advocate", score: 3 },
+          { text: "I use the 'Teach-Back' method: I restate my goals and calmly ask them to note the denial in my chart.", archetype: "sovereign", score: 4 }
+        ]
+      },
+      {
+        category: "Question 3 of 4: PMS & Premenstrual Days",
+        title: "How do you experience the days leading up to your period (the Luteal / Fall phase)?",
+        options: [
+          { text: "I judge myself harshly for feeling irritable and having less patience.", archetype: "machine", score: 1 },
+          { text: "I keep everything bottled up until I snap, feeling guilty afterward.", archetype: "caregiver", score: 2 },
+          { text: "I experience intense emotional turbulence and wish I could turn my hormones off.", archetype: "advocate", score: 2 },
+          { text: "I honor it as 'Premenstrual Self-Care'—a natural sign to purge toxic habits and say no.", archetype: "sovereign", score: 4 }
+        ]
+      },
+      {
+        category: "Question 4 of 4: Everyday Body Literacy",
+        title: "How comfortable are you with mapping the natural phases of your monthly cycle?",
+        options: [
+          { text: "I only think in terms of 'bleeding' vs. 'not bleeding.'", archetype: "machine", score: 1 },
+          { text: "I know the terms vaguely, but my daily routine requires me to operate the exact same every day.", archetype: "caregiver", score: 2 },
+          { text: "I understand cycle syncing conceptually, but find it hard to practice in real life.", archetype: "advocate", score: 3 },
+          { text: "I intentionally plan my workload, rest, and boundaries around my four inner seasons.", archetype: "sovereign", score: 4 }
+        ]
+      }
+    ];
+
+    // --- ARCHETYPE DATA DEFINITIONS ---
+    const archetypes = {
+      machine: {
+        title: "The Over-Functioning Machine",
+        blurb: "You’ve internalized the hustle clock, pushing through biological Winter as if slowing down is a moral failure.",
+        detail: `
+          <p>You have been taught that strength means pushing through your body's fatigue signals. When Winter (menstruation) arrives, you double down on to-dos and keep moving at full capacity.</p>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 mt-2">
+            <strong class="text-amber-900 block text-xs">Dr. Carmen's Self-Care Tip:</strong>
+            <span class="text-xs text-amber-800">Practice the "Winter Pause." Block out 60 to 90 minutes of guilt-free downtime on Day 1 of your bleed. Let loved ones know: <em>"I am taking time to recharge today."</em></span>
+          </div>
+        `
+      },
+      caregiver: {
+        title: "The Silent Caregiver",
+        blurb: "You carry the habit of silence—taking care of everyone else's needs at the expense of your own body.",
+        detail: `
+          <p>You learned early to minimize your physical discomfort so you don't burden others. You carry secret supplies and apologize whenever your energy dips.</p>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 mt-2">
+            <strong class="text-amber-900 block text-xs">Dr. Carmen's Self-Care Tip:</strong>
+            <span class="text-xs text-amber-800">Break the secrecy at home. Do not hide your heating pad or tea. Name your season with dignity: <em>"I am in my quiet winter season today."</em></span>
+          </div>
+        `
+      },
+      advocate: {
+        title: "The Frustrated Advocate",
+        blurb: "You know that medical dismissal is real, but you need calm, grounded tools to communicate during appointments.",
+        detail: `
+          <p>You recognize when your symptoms are being downplayed, but without practical scripts, medical conversations can feel overwhelming and exhausting.</p>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 mt-2">
+            <strong class="text-amber-900 block text-xs">Dr. Carmen's Self-Care Tip:</strong>
+            <span class="text-xs text-amber-800">Bring a written 3-point agenda to doctor visits and use the Teach-Back script below to ask for hormonal lab investigations calmly.</span>
+          </div>
+        `
+      },
+      sovereign: {
+        title: "The Embodied Cycle Sovereign",
+        blurb: "You treat your cycle as an internal compass and guide for everyday self-care.",
+        detail: `
+          <p>You recognize your four dynamic phases and plan when to rest, brainstorm, produce, and say no without shame.</p>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 mt-2">
+            <strong class="text-amber-900 block text-xs">Dr. Carmen's Next Step:</strong>
+            <span class="text-xs text-amber-800">Continue modeling body wisdom for your children, sisters, and community by talking openly without euphemisms.</span>
+          </div>
+        `
+      }
+    };
+
+    // --- INNER SEASONS METADATA ---
+    const seasonsData = {
+      winter: {
+        name: "Winter (Menstruation / The Bleed)",
+        subtitle: "The Season of Inward Stillness & Restoration",
+        hormones: "Estrogen & progesterone at baseline.",
+        guidance: "Reflect, journal, and rest. Avoid heavy social demands or high-intensity workouts. This quiet pause fuels the entire month ahead.",
+        mantra: "Rest is not laziness; rest is preparation."
+      },
+      spring: {
+        name: "Spring (Follicular Phase)",
+        subtitle: "The Season of Renewal & Planning",
+        hormones: "Rising estrogen; mental clarity.",
+        guidance: "A time of new energy. Brainstorm projects, set monthly intentions, and tackle fresh tasks with enthusiasm.",
+        mantra: "I plant intentional seeds with fresh energy."
+      },
+      summer: {
+        name: "Summer (Ovulatory Phase)",
+        subtitle: "The Season of High Output & Connection",
+        hormones: "Estrogen peak; elevated energy.",
+        guidance: "Natural confidence and verbal ease. Pitch your ideas, collaborate with others, and celebrate your community.",
+        mantra: "I step into my full light and share my gifts."
+      },
+      fall: {
+        name: "Fall (Luteal Phase)",
+        subtitle: "Premenstrual Self-Care & Purging",
+        hormones: "Progesterone dominance shifting downward.",
+        guidance: "Dr. Carmen reframes PMS to Premenstrual Self-Care. Your tolerance for clutter and noise drops. Use this clarity to clear commitments and say no.",
+        mantra: "I release what does not serve me and make room for rest."
+      }
+    };
+
+    // --- MEDICAL TEACH-BACK SCRIPTS ---
+    const teachBackScripts = {
+      dismissal: `"Doctor, I hear you stating that this pain is something to simply push through. However, pain that disrupts my daily functioning is biological data indicating disruption. I would like us to investigate metabolic or hormonal markers today. If we are choosing not to order laboratory testing, please chart your clinical rationale for declining these tests."`,
+      clarify: `"Doctor, to ensure we are operating with absolute clarity, let me use the teach-back method to summarize what you've recommended: [Summarize plan in your words]. Did I capture that accurately? What is our timeline to evaluate whether this approach is effectively relieving my symptoms?"`,
+      options: `"I want to actively participate in my health care. Could we review tests that rule out underlying conditions like PCOS, endometriosis, or hormonal imbalances before choosing to simply mask my symptoms with medications?"`
+    };
+
+    // --- DOM REFERENCES ---
+    const viewLanding = document.getElementById('viewLanding');
+    const viewQuiz = document.getElementById('viewQuiz');
+    const viewLeadGate = document.getElementById('viewLeadGate');
+    const viewResults = document.getElementById('viewResults');
+
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const quizStepCounter = document.getElementById('quizStepCounter');
+    const quizPercent = document.getElementById('quizPercent');
+    const quizProgressBar = document.getElementById('quizProgressBar');
+    const qCategory = document.getElementById('qCategory');
+    const qTitle = document.getElementById('qTitle');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const quizPrevBtn = document.getElementById('quizPrevBtn');
+
+    const leadCaptureForm = document.getElementById('leadCaptureForm');
+    const navRestartBtn = document.getElementById('navRestartBtn');
+    const restartBtnFooter = document.getElementById('restartBtnFooter');
+
+    const resUserName = document.getElementById('resUserName');
+    const resArchetypeTitle = document.getElementById('resArchetypeTitle');
+    const resArchetypeBlurb = document.getElementById('resArchetypeBlurb');
+    const resArchetypeDetail = document.getElementById('resArchetypeDetail');
+    const resAdvocacyScore = document.getElementById('resAdvocacyScore');
+    const resAdvocacyLabel = document.getElementById('resAdvocacyLabel');
+
+    const seasonContentDisplay = document.getElementById('seasonContentDisplay');
+    const seasonTabs = document.querySelectorAll('.season-tab');
+
+    const scriptButtons = document.querySelectorAll('.script-btn');
+    const teachBackScriptText = document.getElementById('teachBackScriptText');
+    const copyScriptBtn = document.getElementById('copyScriptBtn');
+
+    const guideModal = document.getElementById('guideModal');
+    const previewGuideBtn = document.getElementById('previewGuideBtn');
+    const downloadGuideBtn = document.getElementById('downloadGuideBtn');
+    const closeGuideModal = document.getElementById('closeGuideModal');
+    const closeGuideModalBtn2 = document.getElementById('closeGuideModalBtn2');
+    const downloadPdfTrigger = document.getElementById('downloadPdfTrigger');
+
+    const toastMessage = document.getElementById('toastMessage');
+    const toastText = document.getElementById('toastText');
+
+    // --- TOAST NOTIFICATION HELPER ---
+    function showToast(msg) {
+      toastText.textContent = msg;
+      toastMessage.classList.remove('translate-y-24', 'opacity-0');
+      toastMessage.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toastMessage.classList.remove('translate-y-0', 'opacity-100');
+        toastMessage.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // --- VIEW SWITCHER ---
+    function switchView(target) {
+      [viewLanding, viewQuiz, viewLeadGate, viewResults].forEach(v => {
+        v.classList.add('hidden');
+      });
+      target.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (target !== viewLanding) {
+        navRestartBtn.classList.remove('hidden');
+      } else {
+        navRestartBtn.classList.add('hidden');
+      }
+    }
+
+    // --- QUIZ RENDERING LOGIC ---
+    function renderQuestion() {
+      const q = questions[quizState.currentQuestionIndex];
+      const total = questions.length;
+      const progressPercent = Math.round(((quizState.currentQuestionIndex + 1) / total) * 100);
+
+      quizStepCounter.textContent = `Question ${quizState.currentQuestionIndex + 1} of ${total}`;
+      quizPercent.textContent = `${progressPercent}% Completed`;
+      quizProgressBar.style.width = `${progressPercent}%`;
+
+      qCategory.textContent = q.category;
+      qTitle.textContent = q.title;
+
+      optionsContainer.innerHTML = '';
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left p-4 sm:p-5 rounded-2xl border border-brand-plum/15 bg-brand-blush/40 hover:bg-brand-blush hover:border-brand-terracotta hover:scale-[1.005] active:scale-[0.995] transition-all flex items-start gap-4 text-xs sm:text-sm text-brand-textDark group";
+        btn.innerHTML = `
+          <span class="w-6 h-6 rounded-full border border-brand-plum/30 flex items-center justify-center font-bold text-xs text-brand-plum group-hover:border-brand-terracotta group-hover:bg-brand-terracotta group-hover:text-white transition-all shrink-0 mt-0.5">
+            ${String.fromCharCode(65 + idx)}
+          </span>
+          <span class="leading-relaxed font-medium">${opt.text}</span>
+        `;
+        btn.onclick = () => handleAnswerSelect(opt);
+        optionsContainer.appendChild(btn);
+      });
+
+      quizPrevBtn.disabled = quizState.currentQuestionIndex === 0;
+    }
+
+    function handleAnswerSelect(option) {
+      quizState.userAnswers[quizState.currentQuestionIndex] = option;
+
+      if (quizState.currentQuestionIndex < questions.length - 1) {
+        quizState.currentQuestionIndex++;
+        renderQuestion();
+      } else {
+        switchView(viewLeadGate);
+      }
+    }
+
+    quizPrevBtn.onclick = () => {
+      if (quizState.currentQuestionIndex > 0) {
+        quizState.currentQuestionIndex--;
+        renderQuestion();
+      }
+    };
+
+    startQuizBtn.onclick = () => {
+      quizState.currentQuestionIndex = 0;
+      quizState.userAnswers = [];
+      renderQuestion();
+      switchView(viewQuiz);
+    };
+
+    function restartDiagnostic() {
+      quizState.currentQuestionIndex = 0;
+      quizState.userAnswers = [];
+      quizState.userData = { name: '', email: '', role: '' };
+      switchView(viewLanding);
+    }
+    navRestartBtn.onclick = restartDiagnostic;
+    restartBtnFooter.onclick = restartDiagnostic;
+
+    // --- RESULTS CALCULATION ---
+    function calculateResults() {
+      const counts = { machine: 0, caregiver: 0, advocate: 0, sovereign: 0 };
+      let rawScoreTotal = 0;
+
+      quizState.userAnswers.forEach(ans => {
+        counts[ans.archetype] = (counts[ans.archetype] || 0) + 1;
+        rawScoreTotal += ans.score;
+      });
+
+      let dominant = 'machine';
+      let maxCount = -1;
+      for (const [key, val] of Object.entries(counts)) {
+        if (val > maxCount) {
+          maxCount = val;
+          dominant = key;
+        }
+      }
+      quizState.calculatedArchetype = dominant;
+
+      // Calculate score percentage (max raw is 16 for 4 questions)
+      const scorePct = Math.min(100, Math.round((rawScoreTotal / 16) * 100));
+      quizState.selfCareScore = scorePct;
+
+      const arch = archetypes[dominant];
+      resUserName.textContent = quizState.userData.name.trim() || 'Friend';
+      resArchetypeTitle.textContent = arch.title;
+      resArchetypeBlurb.textContent = arch.blurb;
+      resArchetypeDetail.innerHTML = arch.detail;
+
+      resAdvocacyScore.textContent = `${scorePct}%`;
+      if (scorePct < 50) {
+        resAdvocacyLabel.textContent = "High Risk of Disempowerment During Medical Encounters";
+      } else if (scorePct < 80) {
+        resAdvocacyLabel.textContent = "Moderate Agency & Growing Self-Care Habits";
+      } else {
+        resAdvocacyLabel.textContent = "Strong Body Trust & Confident Self-Care Practices";
+      }
+
+      // Populate 3D dynamic cards
+      const distractEl = document.getElementById('resDistractText');
+      const disorientEl = document.getElementById('resDisorientText');
+      const disableEl = document.getElementById('resDisableText');
+
+      if (dominant === 'machine') {
+        distractEl.textContent = "Focusing on external output tasks instead of listening to physical fatigue.";
+        disorientEl.textContent = "Assuming you must operate on a 24-hr sprint rather than natural cyclical rhythms.";
+        disableEl.textContent = "Believing that chronic exhaustion is just the normal cost of doing everything.";
+      } else if (dominant === 'caregiver') {
+        distractEl.textContent = "Obsessing over keeping others comfortable so no one sees your discomfort.";
+        disorientEl.textContent = "Believing that communicating your cycle needs is an inconvenience to others.";
+        disableEl.textContent = "Silence that prevents you from speaking up during medical consultations.";
+      } else if (dominant === 'advocate') {
+        distractEl.textContent = "Channeling energy into frustration without finding grounding physical rest.";
+        disorientEl.textContent = "Recognizing systemic medical bias yet feeling unequipped with clinical words.";
+        disableEl.textContent = "Feeling alone in your advocacy without structured family or community support.";
+      } else {
+        distractEl.textContent = "You readily notice when outside pressures try to override your body's timing.";
+        disorientEl.textContent = "You view the four seasons as a practical, actionable compass.";
+        disableEl.textContent = "You communicate your boundaries with calm confidence.";
+      }
+
+      renderSeason('winter');
+    }
+
+    // Lead Capture Form Submission
+    leadCaptureForm.onsubmit = (e) => {
+      e.preventDefault();
+      const name = document.getElementById('userName').value;
+      const email = document.getElementById('userEmail').value;
+      const role = document.getElementById('userRole').value;
+
+      if (!name || !email) {
+        showToast("Please enter both your name and email.");
+        return;
+      }
+
+      quizState.userData = { name, email, role };
+      calculateResults();
+      switchView(viewResults);
+      showToast(`Welcome ${name}! Your self-care profile is ready.`);
+    };
+
+    // --- INNER SEASONS TAB SWITCHER ---
+    function renderSeason(seasonKey) {
+      const data = seasonsData[seasonKey];
+      seasonContentDisplay.innerHTML = `
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <h4 class="font-serif font-bold text-sm text-brand-plum">${data.name}</h4>
+          </div>
+          <p class="text-brand-terracotta font-semibold text-[11px]">${data.subtitle}</p>
+          <div class="p-2.5 rounded-xl bg-white border border-brand-plum/10 text-[11px] text-brand-textDark">
+            <strong>Hormonal Horizon:</strong> ${data.hormones}
+          </div>
+          <p class="text-[11px] text-brand-textMuted leading-relaxed">${data.guidance}</p>
+          <div class="text-[11px] italic font-serif text-brand-plum bg-brand-gold/15 p-2 rounded-lg">
+            "${data.mantra}"
+          </div>
+        </div>
+      `;
+
+      seasonTabs.forEach(tab => {
+        if (tab.dataset.season === seasonKey) {
+          tab.className = "season-tab flex-1 py-2 rounded-lg text-center transition-all bg-brand-plum text-white shadow-sm font-bold text-xs";
+        } else {
+          tab.className = "season-tab flex-1 py-2 rounded-lg text-center transition-all text-brand-plum hover:bg-white font-bold text-xs";
+        }
+      });
+    }
+
+    seasonTabs.forEach(tab => {
+      tab.onclick = () => renderSeason(tab.dataset.season);
+    });
+
+    // --- TEACH-BACK SCRIPT GENERATOR ---
+    scriptButtons.forEach(btn => {
+      btn.onclick = () => {
+        scriptButtons.forEach(b => b.classList.remove('active-script'));
+        btn.classList.add('active-script');
+        const scriptType = btn.dataset.type;
+        teachBackScriptText.textContent = teachBackScripts[scriptType];
+        showToast("Script updated. Ready to practice!");
+      };
+    });
+
+    // Copy to clipboard fallback for iFrames
+    copyScriptBtn.onclick = () => {
+      const textToCopy = teachBackScriptText.textContent.trim();
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast("Script copied to clipboard! ✨");
+        } else {
+          showToast("Please copy the script manually.");
+        }
+      } catch (err) {
+        showToast("Please copy the script manually.");
+      }
+      document.body.removeChild(tempTextArea);
+    };
+
+    // --- LEAD MAGNET MODAL ---
+    previewGuideBtn.onclick = () => guideModal.classList.remove('hidden');
+    closeGuideModal.onclick = () => guideModal.classList.add('hidden');
+    closeGuideModalBtn2.onclick = () => guideModal.classList.add('hidden');
+
+    downloadGuideBtn.onclick = () => triggerDigitalDownload();
+    downloadPdfTrigger.onclick = () => triggerDigitalDownload();
+
+    function triggerDigitalDownload() {
+      const userName = quizState.userData.name || 'Friend';
+      const archetype = quizState.calculatedArchetype ? archetypes[quizState.calculatedArchetype].title : 'Menstrual Self-Care';
+      
+      const fileContent = `===================================================================
+DR. CARMEN: THE FOUR INNER SEASONS DAILY IMPLEMENTATION CHART
+A Simple Daily Compass for Aligning Your Schedule & Rest
+Prepared for: ${userName}
+Your Self-Care Score: ${quizState.selfCareScore}% (${archetype})
+===================================================================
+
+Dear ${userName},
+
+You do not need a complicated manual to honor your body. Use this 
+1-page implementation chart to align your routine with your four seasons:
+
+1. WINTER (Menstruation / The Bleed)
+   - Biology: Low hormones, deep restorative state.
+   - Action: Gentle walking, warm herbal teas, journaling, non-negotiable rest.
+   - Boundary Script: "I am taking quiet time this evening to recharge."
+
+2. SPRING (Follicular Phase)
+   - Biology: Rising estrogen and mental sharpness.
+   - Action: Brainstorming, mapping project milestones, setting monthly plans.
+   - Boundary Script: "I have fresh energy to explore new possibilities today."
+
+3. SUMMER (Ovulatory Phase)
+   - Biology: Peak energy and verbal fluidity.
+   - Action: High output, collaborative meetings, sharing your voice.
+   - Boundary Script: "I'm ready to collaborate and bring this project to life."
+
+4. FALL (Premenstrual Phase / Reframed as Premenstrual Self-Care)
+   - Biology: Progesterone dominance shifting down.
+   - Action: Purge clutter, say no to extra tasks, prepare your space for Winter.
+   - Boundary Script: "I don't have the capacity to take on new projects right now."
+
+CLINICAL TEACH-BACK SCRIPT (FOR MEDICAL APPOINTMENTS):
+"Doctor, let me use the teach-back method to summarize what you've recommended...
+My primary goal is investigating the root cause of this pain. If we are opting
+out of lab tests today, please note that decision and rationale in my chart."
+
+TRANSFORM YOUR ROUTINE WITH 1-ON-1 GUIDANCE:
+Join Dr. Carmen in "Rock with Your Menstrual Rhythm™":
+8 Private 1-on-1 Sessions via Zoom ($997)
+Enroll at: https://www.drcarmenempowers.com/coaching
+Or book a discovery chat: https://calendly.com/drcarmen-empowers/30min
+
+With warmth,
+Dr. Carmen
+===================================================================`;
+
+      const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+      const downloadLink = document.createElement('a');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = `Dr_Carmen_Inner_Seasons_Chart_${userName.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      showToast("Your Implementation Chart has been downloaded! 📥");
+    }
+  </script>
+</body>
+</html>
